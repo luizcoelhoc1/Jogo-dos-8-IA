@@ -25,14 +25,25 @@ Caso você tenha mais de uma versão do python instaladas.
 Na interface gráfica, o usuário pode clicar nos botões para escolher qual algoritmo a I.A. deverá executar para solucionar o problema. Antes de cada nova tentativa, é necessário reiniciar o problema com um dos 4 botões de "Novo Jogo" escolhendo quantas movimentações de embaralhamento devem ser feitas.
 
 O botão "Reverter tudo" faz com que o jogo retorne ao estado inicial voltando na pilha de ações que são armazenadas.
+
 Em "Resolver com heurística" o jogo será resolvido pelo método heurístico que geralmente é bem mais rápido mas não oferece a resposta otimizada.
-Já com "Resolver usando BFS" a resolução será obtida com busca em largura, garantindo asua otimalidade porém pode levar mais tempo
+
+Já com "Resolver usando BFS" a resolução será obtida com busca em largura, garantindo asua otimalidade porém pode levar mais tempo.
 
 ## Resultados
 Testando 3 jogos de 12 movimentos em cada algoritmo, obteve-se os seguintes resultados:
-A heurística levou 30ms, 4ms e 80ms com média de 38ms
-A BFS levou 21055ms, 30375ms e 78387ms com média de 43272ms
+
+A heurística levou 30ms, 4ms e 80ms com média de 38ms.
+
+A BFS levou 21055ms, 30375ms e 78387ms com média de 43272ms.
+
 Porém em alguns casos a heurística pode ficar por tempo indeterminado executando até que ache um resultado, o que torna impraticável a espera.
+
+Heurística  | BFS
+------------- | -------------
+30ms | 21055ms
+4ms | 30375ms 
+38ms | 78387ms
 
 ## Problemas encontrados
 - No Windows o jogo pode aparecer como "Não respondendo" em algum momento, mas ele continua executando mesmo assim, pra isso é só esperar um pouco.
