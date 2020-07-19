@@ -28,6 +28,16 @@ O botão "Reverter tudo" faz com que o jogo retorne ao estado inicial voltando n
 Em "Resolver com heurística" o jogo será resolvido pelo método heurístico que geralmente é bem mais rápido mas não oferece a resposta otimizada.
 Já com "Resolver usando BFS" a resolução será obtida com busca em largura, garantindo asua otimalidade porém pode levar mais tempo
 
+## Resultados
+Testando 3 jogos de 12 movimentos em cada algoritmo, obteve-se os seguintes resultados:
+A heurística levou 30ms, 4ms e 80ms com média de 38ms
+A BFS levou 21055ms, 30375ms e 78387ms com média de 43272ms
+Porém em alguns casos a heurística pode ficar por tempo indeterminado executando até que ache um resultado, o que torna impraticável a espera.
+
+## Problemas encontrados
+- No Windows o jogo pode aparecer como "Não respondendo" em algum momento, mas ele continua executando mesmo assim, pra isso é só esperar um pouco.
+- Tentamos adicionar threads para evitar que a heurística fosse executada por tempo indeterminado, mas não adiantou muito.
+
 ### Desinstalar o PyGame
 ```bash
 pip uninstall pygame
