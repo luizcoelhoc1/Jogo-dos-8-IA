@@ -44,7 +44,7 @@ LEFT = 2
 RIGHT = 3
 
 def main():
-    global FPSCLOCK, DISPLAYSURF, BASICFONT, RESET_SURF, RESET_RECT, NEW_SURF, NEW_RECT, SOLVE_SURF_1, SOLVE_SURF_2, SOLVE_SURF_3, SOLVE_RECT, SOLVE_H, SOLVE_BFS, RESULTOFTHREAD
+    global FPSCLOCK, DISPLAYSURF, BASICFONT, RESET_SURF, RESET_RECT, NEW_SURF, NEW_RECT, SOLVE_SURF_1, SOLVE_SURF_2, SOLVE_SURF_3, SOLVE_RECT, SOLVE_H, SOLVE_BFS, RESULTOFTHREAD, SOLUTION_TIME
 
     #init config
     pygame.init()
@@ -79,7 +79,7 @@ def main():
         slideTo = None
         msg = 'Clique no bloco ou pressione as setas para mover' # contains the message to show in the upper left corner.
         if mainBoard == solvedBoard:
-            msg = 'Solucionado!'
+            msg = 'Solucionado em ' + str(SOLUTION_TIME) + 'ms'
 
         # em todo loop desenha e checa se deve sair do jogo ou não
         drawBoard(mainBoard, msg)
@@ -426,6 +426,7 @@ def makeCopyOfAllPossibleMovesWithoutHistory(board, history = []):
 # Resolve por heuristica e retorna uma lista de movimentos possíveis para a resolução de um tabuleiro
 def solveByHeuristic(board):
     #init boarders de solução e de teste junto com a lista de movimentos
+    start_time = pygame.time.get_ticks()
     global RESULTOFTHREAD
     solvedBoard = getStartingBoard()
     boardChosen = copyBoard(board)
@@ -477,10 +478,12 @@ def solveByHeuristic(board):
 
     #retorna os resultados
     RESULTOFTHREAD = moves
+    computeTime(start_time)
     return moves
 
 # Resolve por busca em largura e retorna uma lista de movimentos possíveis para a resolução de um tabuleiro
 def solveByBFS(board):
+    start_time = pygame.time.get_ticks()
     solvedBoard = getStartingBoard()
 
     #Solução inicial
@@ -503,6 +506,7 @@ def solveByBFS(board):
         if newBoard == solvedBoard:
             global RESULTOFTHREAD
             RESULTOFTHREAD = solution
+            computeTime(start_time)
             return solution
             
         #adiciona na fila novas soluções encontradas
@@ -521,6 +525,12 @@ def solvedByReverse(board, allMoves):
     for move in revAllMoves:
         solution.append(undoMove(move))
     return solution
+
+
+def computeTime(start_time):
+    finish_time = pygame.time.get_ticks()
+    global SOLUTION_TIME
+    SOLUTION_TIME = finish_time - start_time
 
 if __name__ == '__main__':
     main()
