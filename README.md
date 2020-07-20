@@ -45,6 +45,8 @@ Heurística  | BFS
 4ms | 30375ms 
 38ms | 78387ms
 
+Testes feitos em um processador Intel Core i7-3770k.
+
 ## Problemas encontrados
 - No Windows o jogo pode aparecer como "Não respondendo" em algum momento, mas ele continua executando mesmo assim, pra isso é só esperar um pouco.
 - Tentamos adicionar threads para evitar que a heurística fosse executada por tempo indeterminado, mas não adiantou muito.
