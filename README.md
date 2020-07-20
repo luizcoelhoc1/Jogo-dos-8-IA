@@ -1,5 +1,5 @@
 # Jogo dos 8
-Inteligência Artificial - DCC/UFLA - 2020
+Este projeto é um trabalho realizado pelos alunos **Gustavo Rodrigues Sousa** e **Luiz Carlos Coelho Conde** para a disciplina de Inteligência Artificial ministrada pelo professor **Ahmed Ali Abdalla Esmin** pelo DCC da **UFLA** no **primeiro semestre de 2020**. 
 
 ## Requisitos
 Para executar este programa, é necessário ter o Python instalado (versão 3 ou acima), PIP e a biblioteca PyGame
